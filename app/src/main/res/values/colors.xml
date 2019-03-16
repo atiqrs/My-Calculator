@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#C2C5C5</color>
+    <color name="colorBlack">#070707</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorkeypad">#3C393B</color>
+    <color name="colorkeypadEx">#575255</color>
+    <color name="colorFiroza">#06D8AE</color>
+    <color name="colorAccent">#070003</color>
+    <color name="colorAbout">#E2E1E1</color>
+
+</resources>
