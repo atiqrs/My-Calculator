@@ -3,13 +3,11 @@ package com.atiqrs.my_calculator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         input1 = findViewById(R.id.input1);
         inputmid = findViewById(R.id.inputmid);
         input2 = findViewById(R.id.input2);
-        /*last_input = findViewById(R.id.last_input);*/
         output = findViewById(R.id.output);
         b0 = findViewById(R.id.b0);
         b1 = findViewById(R.id.b1);
@@ -68,56 +65,6 @@ public class MainActivity extends AppCompatActivity {
         bMin.setOnClickListener(cal);
         bSum.setOnClickListener(cal);
         registerForContextMenu(bDel);
-
-        /*if (view.getId() == R.id.bEqual){
-            Log.d(equal1, "clicked ");
-            String equal;
-            output.setText("");
-            output.setText(input.getText().toString());
-            //Log.d(equal1, "cleaned ");
-            Toast.makeText(MainActivity.this, "Output showed", Toast.LENGTH_SHORT).show();
-            float calculation = Float.valueOf(input.getText().toString());
-            output.setText(calculation+"");
-            Toast.makeText(MainActivity.this, "Calculation Complate !", Toast.LENGTH_SHORT).show();
-            //Log.d(equal1, "calculation complate!!!  ");
-
-        }*/
-
-        //output.setText("");
-        /*bEqual.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                *//*float aaa = 0,a,aa;
-                out=input.getText().toString();
-                a = Float.valueOf(in);
-                aa= Float.valueOf(out);
-                if(div == true){
-                    aaa = a/aa;
-                }
-                String b = aaa +"";
-                output.setText(b);*//*
-
-                //Log.d(equal1, "cleaned ");
-                //Toast.makeText(MainActivity.this, "Output showed", Toast.LENGTH_SHORT).show();
-
-                Float calculation = Float.parseFloat(input.getText().toString());
-                Toast.makeText(MainActivity.this, "Calculation inputer !", Toast.LENGTH_SHORT).show();
-
-                //String a = calculation +"";
-                //Toast.makeText(MainActivity.this, calculation+"", Toast.LENGTH_SHORT).show();
-                //output.setText(String.valueOf(calculation));
-                //Toast.makeText(MainActivity.this, "Calculation Complate !", Toast.LENGTH_SHORT).show();
-
-                //decimalFormate.formate(Float_name)
-            }
-        });*/
-
-        /*b0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                input.setText(input.getText().toString()+"0");
-            }
-        });*/
     }
 
     @Override
@@ -139,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         getMenuInflater().inflate(R.menu.menu,menu);
-        return;
     }
 
     @Override
@@ -161,20 +107,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class Handle implements View.OnClickListener {
-        private String equal1;
-        private String TAG;
 
         @Override
         public void onClick(View view) {
-            if (view.getId() == R.id.b0){
+            if (view.getId() == R.id.b0)
                 input1.setText(input1.getText().toString()+"0");
-            }
-                if (view.getId() == R.id.b1) {
+                if (view.getId() == R.id.b1)
                 input1.setText(input1.getText().toString()+"1");
-            }
-            if (view.getId() == R.id.b2){
+            if (view.getId() == R.id.b2)
                 input1.setText(input1.getText().toString()+"2");
-            }
             if (view.getId() == R.id.b3)
                 input1.setText(input1.getText().toString()+"3");
             if (view.getId() == R.id.b4)
@@ -193,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
                 input1.setText(input1.getText().toString()+".");
             if (view.getId() == R.id.bDiv) {
                 try {
-                    //input.setText(input.getText().toString()+"/");
                     input2.setText(input1.getText().toString());
                     inputmid.setText("/");
                     input1.setText("");
@@ -202,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                     mul = false;
                     min = false;
                     sum = false;
+
                     if(out!=0){
                         input2.setText(String.valueOf(out));
                     }
@@ -220,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     mul =true;
                     min =false;
                     sum =false;
+
                     if(out!=0){
                         input2.setText(String.valueOf(out));
                     }
@@ -233,18 +175,12 @@ public class MainActivity extends AppCompatActivity {
                     input2.setText(input1.getText().toString());
                     inputmid.setText("-");
                     input1.setText("");
-                    /*
-                    //input.setText(input.getText().toString()+"-");
-                    in1 = Float.parseFloat(input1.getText().toString());
-                    //input.setText(input.getText().toString()+"*");
-                    in1-=in2;
-                    input1.setText("");
-                    inputmid.setText("-");
-                    input2.setText(in1+"");*/
+
                     div =false;
                     mul =false;
                     min =true;
                     sum =false;
+
                     if(out!=0){
                         input2.setText(String.valueOf(out));
                     }
@@ -257,18 +193,12 @@ public class MainActivity extends AppCompatActivity {
                     input2.setText(input1.getText().toString());
                     inputmid.setText("+");
                     input1.setText("");
-                    /*//input.setText(input.getText().toString()+"+");
-                    in1 = Float.parseFloat(input1.getText().toString());
-                    in1+=in2;
-                    input1.setText("");
-                    inputmid.setText("+");
-                    input2.setText(in1+"");
-                    */
 
                     div =false;
                     mul =false;
                     min =false;
                     sum =true;
+
                     if(out!=0){
                         input2.setText(String.valueOf(out));
                     }
@@ -279,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if (view.getId() == R.id.bDel) try {
-                //Toast.makeText(MainActivity.this, "Delete Pressed!", Toast.LENGTH_SHORT).show();
                 String aa;
                 if (input1.getText().toString().length() == 0) {
                     inputmid.setText("");
@@ -288,22 +217,6 @@ public class MainActivity extends AppCompatActivity {
                 aa = input1.getText().toString();
                 String a = aa.substring(0, aa.length() - 1);
                 input1.setText(a);
-
-                //Toast.makeText(MainActivity.this, "String created", Toast.LENGTH_SHORT).show();
-                //aa = input2.getText().toString()+inputmid.getText().toString()+input2.getText().toString();
-                //Toast.makeText(MainActivity.this, "value assigned", Toast.LENGTH_SHORT).show();
-
-
-/*
-                    if(input1.getText().toString()!=""||inputmid.getText().toString()!=""){
-                        aa=inputmid.getText().toString();
-                        inputmid.setText(aa.substring(0,aa.length()-1));
-                        if (inputmid.getText().toString()!=""||input2.getText().toString()!=""){
-                            aa=input2.getText().toString();
-                            input2.setText(aa.substring(0,aa.length()-1));
-                        }
-                    }
-*/
             } catch (Exception e) {
                 Toast.makeText(MainActivity.this, "Field is Empty", Toast.LENGTH_SHORT).show();
             }
